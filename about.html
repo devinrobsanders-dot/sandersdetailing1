@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sanders Detailing - About Us</title>
+
+<!-- Speed Optimization -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root { --gold:#ff8410; }
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#0e0e0e;
+    color:#eaeaea;
+}
+
+/* DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU'RE DOING. THIS IS THE ABOUT PAGE. */
+/* HEADER */
+
+header{
+    position:fixed;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--gold);
+    z-index:1000;
+}
+header h1{
+    font-size:2.0rem;
+}
+header nav{
+    display:flex;
+    gap: 10px;
+}
+
+/* HERO */
+.hero{
+    height:50vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background: url("images/2024-03-13.webp") center/cover no-repeat;
+    position:relative;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: rgba(0,0,0,0.45); /* optional dark overlay */
+}
+.hero h2{
+    font-family:'Playfair Display',serif;
+    font-size:64px;
+}
+
+.btn{
+    padding: 12px 40px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    transition:.4s;
+}
+.btn:hover{background:var(--gold);color:black;}
+
+.top-schedule{
+    padding: 12px 40px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    transition:.4s;
+}
+.top-schedule:hover{background:var(--gold);color:black;}
+
+/* FLOATING BUTTON */
+.floating-btn{
+    position: fixed;
+    bottom:25px;
+    right:25px;
+    background:var(--gold);
+    color:#000;
+    padding:14px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:500;
+    box-shadow:0 0 20px rgba(255, 212, 69, 0.4);
+    transition:.3s;
+    z-index:9999;
+}
+
+.floating-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px rgba(212,175,55,0.7);
+}
+
+/* SECTIONS */
+
+.section{padding:100px 60px;text-align:center;}
+
+.service-title{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top: 100px;
+}
+
+.services{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.recent-work{
+    margin-bottom:50px;
+}
+
+.card{
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(12px);
+    border:1px solid rgb(255, 141, 11);
+    padding:30px;
+    width:280px;
+    transition:.4s;
+}
+.card:hover{transform:translateY(-10px);border-color:var(--white);}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    opacity:.85;
+    transition:.4s;
+}
+.gallery img:hover{opacity:1;transform:scale(1.01);}
+
+/* ANIMATIONS */
+.fade{opacity:0;transform:translateY(40px);transition:1s;}
+.fade.show{opacity:1;transform:translateY(0);}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h2{font-size:36px;}
+header{padding:20px;}
+}
+
+.social-footer {
+    background: #111;
+    border-top: 1px solid rgba(255, 132, 16, 0.45);
+    padding: 40px 60px;
+    text-align: center;
+}
+.social-footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+.social-footer .social-icons a {
+    padding: 10px 20px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    transition:.2s;
+}
+.social-footer .social-icons a:hover {
+    background: var(--gold);
+    color: #000;
+}
+.social-footer small {
+    color: #ccc;
+}
+
+/* HAMBURGER */
+.hamburger{
+    display:none;
+    cursor:pointer;
+    width:30px;
+    height:24px;
+    position:relative;
+    margin-left:auto;
+}
+.hamburger span{
+    display:block;
+    width:100%;
+    height:3px;
+    background:var(--gold);
+    margin:4px 0;
+    transition:0.3s;
+    transform-origin:center;
+}
+#nav-toggle:checked ~ .hamburger span:nth-child(1){
+    transform:rotate(45deg) translate(5px,5px);
+}
+#nav-toggle:checked ~ .hamburger span:nth-child(2){
+    opacity:0;
+}
+#nav-toggle:checked ~ .hamburger span:nth-child(3){
+    transform:rotate(-45deg) translate(7px,-6px);
+}
+.navigation{
+    display:flex;
+    gap: 10px;
+    transition:transform 0.3s ease, opacity 0.3s ease;
+}
+.close-btn{
+    display:none;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:30px;
+    color:var(--gold);
+    cursor:pointer;
+    z-index:1000;
+}
+#nav-toggle:checked ~ .close-btn{
+    display:block;
+}
+
+@media(max-width:600px){
+  .hamburger{ display:block; }
+  .navigation { 
+    flex-direction:column; 
+    position:fixed; 
+    top:0; 
+    left:0; 
+    width:100%; 
+    height:100vh; 
+    background:rgba(14,14,14,0.98); 
+    justify-content:center; 
+    align-items:center; 
+    gap:20px; 
+    transform:translateY(-100%);
+    opacity:0;
+    pointer-events:none;
+    z-index:999;
+  }
+  #nav-toggle:checked ~ .navigation {
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+  .top-schedule{
+    font-size:1.2rem;
+    padding:15px 30px;
+  }
+}
+.social-footer {
+    background: #111;
+    border-top: 1px solid rgba(255, 132, 16, 0.45);
+    padding: 40px 60px;
+    text-align: center;
+}
+.social-footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+.social-footer .social-icons a {
+    padding: 10px 20px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    transition:.2s;
+}
+.social-footer .social-icons a:hover {
+    background: var(--gold);
+    color: #000;
+}
+.social-footer small {
+    color: #ccc;
+}
+</style>
+</head>
+
+<!-- BODY -->
+<body>
+<header>
+    <h1>Sanders Detailing</h1>
+    <input type="checkbox" id="nav-toggle" style="display:none;">
+    <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <label for="nav-toggle" class="close-btn">&times;</label>
+    <nav class="navigation">
+        <a href="index.html" class="top-schedule">Home</a>
+        <a href="about.html" class="top-schedule">About Us</a>
+        <a href="#contact" class="top-schedule">Contact Us</a>
+        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule">Online Booking</a>
+    </nav>
+</header>
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="fade">
+        <h2>Why Choose Sanders Detailing?</h2>
+        <p>The Standard Others Can't Match</p>
+    </div>
+<!-- ABOUT US CARDS -->
+</section>
+    <h2 class="service-title">What Sets Us Apart</h2>
+<section class="section fade">
+    <div class="services">
+        <div class="card">
+            <h3>Family Style Approach</h3>
+            <p>At Sanders Detailing, we treat every vehicle like it's our own. Whether it's a daily driver or a showroom piece, we bring the same level of dedication and precision to every job.</p>
+        </div>
+         <div class="card">
+            <h3>High-Quality Products</h3>
+            <p>We take a meticulous approach to detailing, using high-quality products, proven techniques, and a trained eye for detail to deliver consistent, showroom-level results. From the initial inspection to the final wipe-down</p>
+        </div>
+         <div class="card">
+            <h3>Reliability</h3>
+            <p>We believe reliability goes beyond just being on time—it means clear communication, honest expectations, and standing behind our work. When you choose Sanders Detailing, you’re choosing a team that takes pride in being dependable from start to finish.</p>
+        </div>
+    </section>
+        </div>
+</section>
+<!-- PARTNERS SECTION -->
+ 
+<section class="section fade">
+    <h2>Partners</h2>
+    <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap;">
+        <img src="images/SystemXACLogo.png" alt="System X Ceramic Logo" style="max-width:250px; max-height:125px; object-fit:contain;">
+        <img src="images/3D.png" alt="3D Logo" style="max-width:250px; max-height:125px; object-fit:contain;">
+    </div>
+</section>
+
+<!-- 🔥 FLOATING BUTTON --><!-- ...existing code... -->
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section fade">
+    <h2>Contact</h2>
+    <p>Phone: (586)-482-4403</p>
+    <p>Email: Contact@sandersdetailing.com</p>
+</section>
+<footer class="section social-footer">
+    <div class="social-icons">
+        <a href="https://www.facebook.com/sandersdetailingllc" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/sandersdetailing" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@sandersautodetailing" target="_blank" rel="noopener">TikTok</a>
+    </div>
+    <small>&copy; 2026 Sanders Detailing. All rights reserved. · <a href="#contact" style="color:#eaeaea;text-decoration:underline;">Contact</a></small>
+</footer>
+<!-- 🔥 FLOATING BUTTON -->
+<a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="floating-btn">Book Now</a>
+<!-- Optimized JS -->
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('show');}
+});
+},{threshold:.2});
+
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
