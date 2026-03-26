@@ -291,7 +291,6 @@ header{padding:20px;}
         opacity: 0;
         transform: translateY(40px);
         transition: opacity 1s ease, transform 1s ease;
-        margin-top: 0%;
 }
 </style>
 </head>
@@ -386,6 +385,7 @@ if(e.isIntersecting){e.target.classList.add('show');}
 },{threshold:.2});
 
 document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+history.pushState(null, null, 'https://sandersdetailing.com/about.html');
 </script>
 
 </body>
