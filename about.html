@@ -292,12 +292,24 @@ header{padding:20px;}
         transform: translateY(40px);
         transition: opacity 1s ease, transform 1s ease;
 }
+.navbar {
+    display: flex;
+    align-items: center; /* Vertically centers the logo */
+    justify-content: space-between; /* Positions logo left, nav right */
+    size: 62px; /* Adjust based on your design */
+}
+.navbar-brand img {
+    height: 50px; /* Adjust based on navbar height */
+    width: auto;
+}
 </style>
 </head>
 <!-- BODY -->
 <body>
 <header>
-    <h1>Sanders Detailing</h1>
+    <a href="/" class="navbar-brand">
+        <img src="images/logo-transparent-svg 3.svg" alt="Sanders Detailing Logo" style="height: 40px;">
+    </a>
     <input type="checkbox" id="nav-toggle" style="display:none;">
     <label for="nav-toggle" class="hamburger">
         <span></span>

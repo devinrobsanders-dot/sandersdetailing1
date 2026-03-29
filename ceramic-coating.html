@@ -281,7 +281,16 @@ header h1{
 .systemxlogo:hover{
     transform:scale(1.05);
 }
-
+.navbar {
+    display: flex;
+    align-items: center; /* Vertically centers the logo */
+    justify-content: space-between; /* Positions logo left, nav right */
+    size: 62px; /* Adjust based on your design */
+}
+.navbar-brand img {
+    height: 50px; /* Adjust based on navbar height */
+    width: auto;
+}
 </style>
 </head>
 <!-- THE END OF CLASSES -->
@@ -289,7 +298,9 @@ header h1{
 <!-- THIS IS THE HOME PAGE BODY-->
 <body>
 <header>
-    <h1>Sanders Detailing</h1>
+    <a href="/" class="navbar-brand">
+        <img src="images/logo-transparent-svg 3.svg" alt="Sanders Detailing Logo" style="height: 40px;">
+    </a>
     <input type="checkbox" id="nav-toggle" style="display:none;">
     <label for="nav-toggle" class="hamburger">
         <span></span>
