@@ -275,13 +275,24 @@ header h1{
 .social-footer small {
     color: #ccc;
 }
+.navbar {
+    display: flex;
+    align-items: center; /* Vertically centers the logo */
+    justify-content: space-between; /* Positions logo left, nav right */
+}
+.navbar-brand img {
+    height: 50px; /* Adjust based on navbar height */
+    width: auto;
+}
 </style>
 </head>
 <!-- THIS IS THE HOME PAGE BODY-->
 <!-- BODY -->
 <body>
 <header>
-    <h1>Sanders Detailing</h1>
+    <a href="/" class="navbar-brand">
+        <img src="path/to/logo.png" alt="Logo" style="height: 40px;">
+    </a>
     <input type="checkbox" id="nav-toggle" style="display:none;">
     <label for="nav-toggle" class="hamburger">
         <span></span>
