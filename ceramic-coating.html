@@ -158,10 +158,9 @@ header h1{
 }
 
 .services{
-    display:flex;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap:30px;
-    flex-wrap:wrap;
-    justify-content:center;
 }
 
 .recent-work{
