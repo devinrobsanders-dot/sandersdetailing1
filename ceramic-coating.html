@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ceramic Coatings</title>
-<link rel="icon" type="images/x-icon" href="images/logo-transparent-svg.svg">
+<link rel="icon" type="image/x-icon" href="images/logo-transparent-svg.svg">
 
-<!-- Speed Optimization -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -22,7 +21,6 @@ body{
     color:#eaeaea;
 }
 
-/* DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU'RE DOING. THIS IS THE HOME PAGE. */
 /* HEADER */
 header{
     position:fixed;
@@ -31,59 +29,38 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background-color: #111;
+    background:#111;
     backdrop-filter:blur(12px);
     border-bottom:1px solid var(--gold);
     z-index:1000;
 }
-header h1{
-    font-size:2.0rem;
-    margin-top: 0;
-}
+
 .hamburger{
     display:none;
     cursor:pointer;
     width:30px;
-    height:24px;
-    position:relative;
-    margin-left:auto;
 }
+
 .hamburger span{
     display:block;
-    width:100%;
     height:3px;
     background:var(--gold);
-    margin:4px 0;
-    transition:0.3s;
-    transform-origin:center;
+    margin:5px 0;
 }
-#nav-toggle:checked ~ .hamburger span:nth-child(1){
-    transform:rotate(45deg) translate(5px,5px);
-}
-#nav-toggle:checked ~ .hamburger span:nth-child(2){
-    opacity:0;
-}
-#nav-toggle:checked ~ .hamburger span:nth-child(3){
-    transform:rotate(-45deg) translate(7px,-6px);
-}
+
 .navigation{
     display:flex;
-    gap: 10px;
-    transition:transform 0.3s ease, opacity 0.3s ease;
+    gap:10px;
 }
-.close-btn{
-    display:none;
-    position:absolute;
-    top:20px;
-    right:20px;
-    font-size:30px;
+
+.top-schedule{
+    padding:12px 30px;
+    border:1px solid var(--gold);
     color:var(--gold);
-    cursor:pointer;
-    z-index:1000;
+    text-decoration:none;
+    transition:.3s;
 }
-#nav-toggle:checked ~ .close-btn{
-    display:block;
-}
+.top-schedule:hover{background:var(--gold);color:black;}
 
 /* HERO */
 .hero{
@@ -92,41 +69,20 @@ header h1{
     justify-content:center;
     align-items:center;
     text-align:center;
-    background: url("images/Boat.jpg") center/cover no-repeat;
+    background:url("images/Boat.jpg") center/cover no-repeat;
     position:relative;
 }
 .hero::before{
     content:"";
     position:absolute;
     inset:0;
-    background: rgba(0,0,0,0.45); /* optional dark overlay */
+    background:rgba(0,0,0,0.45);
 }
-.hero h2{
-    font-family:'Bebas Neue',sans-serif;
-    font-size:64px;
-}
+.hero h2{font-size:64px;}
 
-.btn{
-    padding: 12px 40px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    transition:.4s;
-}
-.btn:hover{background:var(--gold);color:black;}
-
-.top-schedule{
-    padding: 12px 40px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    transition:.4s;
-}
-.top-schedule:hover{background:var(--gold);color:black;}
-
-/* FLOATING BUTTON */
+/* BUTTON */
 .floating-btn{
-    position: fixed;
+    position:fixed;
     bottom:25px;
     right:25px;
     background:var(--gold);
@@ -134,288 +90,158 @@ header h1{
     padding:14px 22px;
     border-radius:50px;
     text-decoration:none;
-    font-weight:500;
-    box-shadow:0 0 20px rgba(255, 115, 0, 0.726);
-    transition:.3s;
-    z-index:9999;
-}
-
-.floating-btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 30px rgba(255, 122, 14, 0.4);
+    box-shadow:0 0 20px rgba(255,115,0,0.7);
 }
 
 /* SECTIONS */
-
 .section{padding:100px 60px;text-align:center;}
-
-.service-title{
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top: 75px;
-}
 
 .services{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:30px;
-}
-
-.recent-work{
-    margin-bottom:50px;
 }
 
 .card{
     background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(12px);
-    border:1px solid rgb(255, 141, 11);
-    padding:30px;
-    width:280px;
-    transition:.4s;
-    flex-wrap: wrap;
+    border:1px solid var(--gold);
+    padding:25px;
+    border-radius:10px;
+    transition:.3s;
 }
-.card:hover{transform:translateY(-10px);border-color:var(--white);}
+.card:hover{transform:translateY(-8px);}
 
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-}
-
-.gallery img{
+.card-photo{
     width:100%;
-    height:300px;
-    object-fit:cover;
-    opacity:.85;
-    transition:.4s;
+    height:180px;
+    object-fit:contain;
+    margin-bottom:15px;
 }
-.gallery img:hover{opacity:1;transform:scale(1.01);}
 
-/* ANIMATIONS */
-.fade{opacity:0;transform:translateY(40px);transition:1s;}
-.fade.show{opacity:1;transform:translateY(0);}
-
-/* MOBILE */
-@media(max-width:1024px){
-  header nav { gap:8px; }
-  .top-schedule { padding:10px 30px; font-size:0.95rem; }
+/* FOOTER */
+.social-footer{
+    background:#111;
+    border-top:1px solid rgba(255,132,16,0.45);
+    padding:40px;
 }
-@media(max-width:768px){
-  .hero h2{font-size:36px;}
-  header{padding:20px;}
-  header h1{font-size:1.5rem;}
-  .section{padding:80px 20px;}
-  .service-title{margin-top:80px;}
-  .services{flex-direction:column; align-items:center;}
-  .card{width:100%; max-width:320px;}
-  .gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-  .top-schedule{padding:10px 20px; font-size:0.9rem;}
-  .floating-btn{bottom:20px; right:20px; padding:12px 18px; font-size:0.9rem;}
+.social-icons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
 }
-@media(max-width:600px){
-  .hamburger{ display:block; }
-  .navigation { 
-    flex-direction:column; 
-    position:fixed; 
-    top:0; 
-    left:0; 
-    width:100%; 
-    height:100vh; 
-    background:rgba(14,14,14,0.98); 
-    justify-content:center; 
-    align-items:center; 
-    gap:20px; 
-    transform:translateY(-100%);
-    opacity:0;
-    pointer-events:none;
-    z-index:999;
-  }
-  #nav-toggle:checked ~ .navigation {
-    transform:translateY(0);
-    opacity:1;
-    pointer-events:auto;
-  }
-  .top-schedule{
-    font-size:1.2rem;
-    padding:15px 30px;
-  }
-}
-@media(max-width:480px){
-  .hero{height:60vh;}
-  .hero h2{font-size:28px;}
-  header h1{font-size:1.2rem;}
-  .section{padding:60px 15px;}
-  .card{padding:20px;}
-  .gallery{grid-template-columns:1fr;}
-  header nav { width:180px; }
-}
-.social-footer {
-    background: #111;
-    border-top: 1px solid rgba(255, 132, 16, 0.45);
-    padding: 40px 60px;
-    text-align: center;
-}
-.social-footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 14px;
-}
-.social-footer .social-icons a {
-    padding: 10px 20px;
+.social-icons a{
+    padding:10px 20px;
     border:1px solid var(--gold);
     color:var(--gold);
     text-decoration:none;
-    transition:.2s;
 }
-.social-footer .social-icons a:hover {
-    background: var(--gold);
-    color: #000;
-}
-.social-footer small {
-    color: #ccc;
-}
-.systemxlogo {
-    object-fit: contain;
-}
-.systemxlogo:hover{
-    transform:scale(1.05);
-}
-.navbar {
-    display: flex;
-    align-items: center; /* Vertically centers the logo */
-    justify-content: space-between; /* Positions logo left, nav right */
-    size: 62px; /* Adjust based on your design */
-}
-.navbar-brand img {
-    height: 50px; /* Adjust based on navbar height */
-    width: auto;
-}
-.card-photo {
-  width: 100%;
-  height: 250px; /* Fixed height for consistency */
-  object-fit: cover;
-  display: block;
+.social-icons a:hover{
+    background:var(--gold);
+    color:#000;
 }
 
+/* MOBILE */
+@media(max-width:768px){
+    header{padding:20px;}
+    .section{padding:80px 20px;}
+}
 </style>
 </head>
-<!-- THE END OF CLASSES -->
 
-<!-- THIS IS THE HOME PAGE BODY-->
 <body>
+
 <header>
     <a href="/" class="navbar-brand">
-        <img src="images/logo-transparent-svg 3.svg" alt="Sanders Detailing Logo" style="height: 40px;">
+        <img src="images/logo-transparent-svg 3.svg" style="height:40px;">
     </a>
-    <input type="checkbox" id="nav-toggle" style="display:none;">
-    <label for="nav-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
-    <label for="nav-toggle" class="close-btn">&times;</label>
+
     <nav class="navigation">
         <a href="index.html" class="top-schedule">Home</a>
         <a href="ceramic-coating.html" class="top-schedule">Ceramic Coatings</a>
         <a href="about.html" class="top-schedule">About Us</a>
-        <a href="index.html#contact" class="top-schedule">Contact Us</a>
-        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule">Online Booking</a>
+        <a href="#contact" class="top-schedule">Contact</a>
     </nav>
 </header>
+
 <section class="hero">
-    <div class="fade">
-        <h2 style="font-size: 64px;">System X Ceramic</h2>
-        <p style="font-size: 32px;">The only ceramic coating you'll ever need</p>
+    <div>
+        <h2>System X Ceramic</h2>
+        <p style="font-size:28px;">The only ceramic coating you'll ever need</p>
     </div>
 </section>
 
-<section class="section fade">
-    <h2 class="service-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 48px;">Accredited Installation</h2>
-    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">Cleaning your ride just got easier with System X Ceramic! with our certified installation technicians you can be, confident your vehicles coating is applied correctly & Protecting your investment from UV-Rays, Chemicals and environmental damage with the best ceramic coating on the market.</p>
+<section class="section">
+    <h2 style="font-size:48px;">Accredited Installation</h2>
+    <p style="font-size:24px;">
+        Professional ceramic coating installation protecting your vehicle from UV, chemicals, and wear.
+    </p>
 </section>
 
-<section class="section fade">
-     <h2 class="service-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 72px; padding: 20px;">Available Coatings</h2>
+<section class="section">
+    <h2 style="font-size:64px;">Available Coatings</h2>
 
-<div class="services">
+    <div class="services">
+
         <div class="card">
-            <img src="images/SX-CrystalSS+-65ml-High-Res.png" alt="System X Crystal+" class="card-photo">
+            <img src="images/SX-CrystalSS+-65ml-High-Res.png" class="card-photo">
             <h3>Crystal+</h3>
-            <p>System X Crystal+ is a high-gloss, super-slick ceramic coating with a 2-year warranty. It offers great gloss and semi-permanent self-cleaning properties.</p>
+            <p>High-gloss ceramic coating with 2-year protection.</p>
         </div>
+
         <div class="card">
+            <img src="images/pro-plus.png" class="card-photo">
             <h3>Pro+</h3>
-            <p>System X Pro+ is an ultra-hydrophobic ceramic coating for automotive paint. Pro+™ is a semi-permanent 9H self-cleaning ceramic with a high gloss.</p>
+            <p>Ultra-hydrophobic ceramic coating with deep gloss.</p>
         </div>
+
         <div class="card">
+            <img src="images/max-g-plus.png" class="card-photo">
             <h3>MAX G+</h3>
-            <p>System X MAX G+ redefines professional-grade ceramic coatings featuring a 30% glossier finish, significantly improved gloss retention, and exceptional slickness all while protecting paintwork in the industry-proven MAX resin system.</p>
+            <p>Enhanced gloss and durability.</p>
         </div>
+
         <div class="card">
+            <img src="images/max.png" class="card-photo">
             <h3>MAX</h3>
-            <p>System X MAX is the ultimate ceramic coating for automotive paint, offering unmatched durability and protection in the industry-proven MAX resin system.</p>
+            <p>Maximum protection and longevity.</p>
         </div>
+
         <div class="card">
+            <img src="images/max-mf.png" class="card-photo">
             <h3>MAX MF</h3>
-            <p>System X MAX MF is the first-of-its-kind ceramic nano-coating specially designed to retain the natural look of matte and satin paint, wraps, and PPF all while protecting the surface finish in the industry-proven MAX resin system.</p>
+            <p>Perfect for matte finishes.</p>
         </div>
+
         <div class="card">
+            <img src="images/glass-plus.png" class="card-photo">
             <h3>Glass+</h3>
-            <p>System X Glass+ protects your windshields/windscreens, mirrors, headlamps, and glass surfaces for up to 2 years!</p>
+            <p>Protects glass surfaces.</p>
         </div>
+
         <div class="card">
-        <h3>Wheel+</h3>
-            <p>System X Wheel+ comprises advanced ceramic technology found in our most durable coatings and blended to become even more corrosion-resistant than ever before.</p>
+            <img src="images/wheel-plus.png" class="card-photo">
+            <h3>Wheel+</h3>
+            <p>Wheel protection and corrosion resistance.</p>
         </div>
-</div>
 
-<!-- Sectional Photo -->
-
-<section class="hero fade" style="height:60vh;margin:40px 0;background: url('images/2024-03-13.webp') center/cover no-repeat;">
-    <div style="position:relative;z-index:1;color:#fff; text-align:center;">
-      <h2 style="font-family:'Bebas Neue',serif;font: size 62px;">Protect Your Investment</h2>
-      <p>with System X Ceramic Today!</p>
     </div>
 </section>
-<section class="section fade">
-    <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap;">
-       <a href="https://systemx.com/" target="_blank" rel="noopener noreferrer">
-            <img class="systemxlogo" src="images/SystemXACLogo.png" alt="System X Ceramic Logo" style="max-width:800px; max-height:400px; object-fit:contain;">
-        </a>
-    </div>
-</section>
-<!-- CONTACT -->
-<section id="contact" class="section fade">
-    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">(586) 482-4403</p>
-    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">Contact@sandersdetailing.com</p>
+
+<section id="contact" class="section">
+    <p>(586) 482-4403</p>
+    <p>Contact@sandersdetailing.com</p>
 </section>
 
-<footer class="section social-footer">
+<footer class="social-footer">
     <div class="social-icons">
-        <a href="https://www.facebook.com/sandersdetailingllc" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/sandersdetailing" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@sandersautodetailing" target="_blank" rel="noopener">TikTok</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
     </div>
-    <small>&copy; 2026 Sanders Detailing. All rights reserved. · Designed by Sanders Detailing</small>
+    <small>© 2026 Sanders Detailing</small>
 </footer>
 
-<!-- 🔥 FLOATING BUTTON -->
+<a href="#" class="floating-btn">Book Now</a>
 
-<a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="floating-btn">Book Now</a>
-
-<!-- Optimized JS -->
-<script>
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){e.target.classList.add('show');}
-});
-},{threshold:.2});
-
-document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
-</script>
 </body>
-
 </html>
