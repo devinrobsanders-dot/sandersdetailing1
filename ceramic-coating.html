@@ -293,6 +293,20 @@ header h1{
     height: 50px; /* Adjust based on navbar height */
     width: auto;
 }
+.card {
+  border: 1px solid #ccc;
+  overflow: hidden; /* Ensures image corners match card border-radius */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column; /* Stacks elements vertically */
+}
+
+.card-photo {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover;
+  display: block;
+}
 </style>
 </head>
 <!-- THE END OF CLASSES -->
