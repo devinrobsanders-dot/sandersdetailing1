@@ -26,7 +26,7 @@ body{
     color:#eaeaea;
 }
 
-/* ================= NAV (UNCHANGED) ================= */
+/* ================= NAV ================= */
 
 header{
     position:fixed;
@@ -89,7 +89,6 @@ header{
     display:block;
 }
 
-/* NAV LINKS */
 .top-schedule{
     padding:12px 40px;
     border:1px solid var(--gold);
@@ -103,7 +102,7 @@ header{
     color:#000;
 }
 
-/* ================= SPACING (NO HERO) ================= */
+/* ================= SPACING ================= */
 
 .spacer{
     height:120px;
@@ -126,13 +125,18 @@ header{
     backdrop-filter:blur(12px);
 }
 
-.form-title{
-    font-size:54px;
-    margin-bottom:20px;
+.service-title{
     color:var(--gold);
+    margin-bottom:20px;
+    font-size:42px;
 }
 
-/* INPUT FIELDS */
+/* ROW FIX (THIS WAS BREAKING YOUR FOOTER FEEL) */
+.row{
+    display:flex;
+    gap:15px;
+}
+
 form{
     display:flex;
     flex-direction:column;
@@ -140,6 +144,7 @@ form{
 }
 
 input, textarea{
+    width:100%;
     padding:12px;
     border-radius:8px;
     border:1px solid rgba(255,132,16,0.4);
@@ -159,8 +164,8 @@ input:focus, textarea:focus{
     border-color:var(--gold);
 }
 
-/* BUTTON */
-.submit-btn{
+/* BUTTON FIX */
+button{
     padding:14px;
     border:none;
     background:var(--gold);
@@ -169,19 +174,23 @@ input:focus, textarea:focus{
     cursor:pointer;
     border-radius:10px;
     transition:.3s;
+    font-family:'Bebas Neue',sans-serif;
 }
 
-.submit-btn:hover{
+button:hover{
     transform:scale(1.03);
 }
 
-/* ================= FOOTER ================= */
+/* ================= FOOTER (FIXED) ================= */
 
 .social-footer{
     background:#111;
     border-top:1px solid rgba(255, 132, 16, 0.45);
     padding:40px 60px;
     text-align:center;
+    margin-top:40px;
+    clear:both;
+    position:relative;
 }
 
 .social-footer .social-icons{
@@ -189,6 +198,7 @@ input:focus, textarea:focus{
     justify-content:center;
     gap:14px;
     margin-bottom:14px;
+    flex-wrap:wrap;
 }
 
 .social-footer .social-icons a{
@@ -206,6 +216,7 @@ input:focus, textarea:focus{
 
 .social-footer small{
     color:#ccc;
+    display:block;
 }
 
 /* ================= MOBILE ================= */
@@ -233,6 +244,10 @@ input:focus, textarea:focus{
         opacity:1;
         pointer-events:auto;
     }
+
+    .row{
+        flex-direction:column;
+    }
 }
 </style>
 </head>
@@ -259,7 +274,7 @@ input:focus, textarea:focus{
         <a href="ceramic-coating.html" class="top-schedule">Ceramic Coatings</a>
         <a href="about.html" class="top-schedule">About Us</a>
         <a href="contact.html" class="top-schedule">Contact Us</a>
-        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule"> Online Booking</a>
+        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule">Online Booking</a>
     </nav>
 </header>
 
@@ -267,17 +282,30 @@ input:focus, textarea:focus{
 
 <section class="section">
 
+    <h2 class="service-title">Book Your Detail</h2>
+
     <div class="form-container">
 
-        <div class="form-title">Contact Us</div>
-     <iframe
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQF7fZj1_pPgqMLwJ3dOHZ97nlLXewfjFtTqiFz3nt6oE3hQ/viewform?embedded=true" 
-width="640" 
-height="917" 
-frameborder="0" 
-marginheight="0" 
-marginwidth="0"></iframe>
-        
+        <form id="bookingForm">
+
+            <div class="row">
+                <input type="text" name="first" placeholder="First Name" required>
+                <input type="text" name="last" placeholder="Last Name" required>
+            </div>
+
+            <div class="row">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+            </div>
+
+            <textarea name="message" placeholder="Tell us about your vehicle..." required></textarea>
+
+            <button type="submit">Send Booking Request</button>
+
+        </form>
+
+        <p id="status"></p>
+
     </div>
 
 </section>
@@ -295,7 +323,7 @@ marginwidth="0"></iframe>
 </footer>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", async function(e){
+document.getElementById("bookingForm").addEventListener("submit", async function(e){
     e.preventDefault();
 
     const data = {
@@ -306,7 +334,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
         message: this.message.value
     };
 
-    await fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
+    await fetch("https://script.google.com/macros/s/AKfycbzzzfcDNcsoZcw6SvMS4QkGzoR5GahBZi8Yxs9hPfx1Y0jIciwM66D6Qk0XvlG4qifbng/exec", {
         method: "POST",
         body: JSON.stringify(data)
     });
