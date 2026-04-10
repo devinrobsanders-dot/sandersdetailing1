@@ -307,9 +307,22 @@ header h1{
     height:200px;
     margin-bottom:15px;
 }
+.hero-logo{
+    position:relative;
+    z-index:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+}
+
+.hero-logo img{
+    width: clamp(180px, 25vw, 420px);
+    height:auto;
+    filter: drop-shadow(0 0 15px rgba(255,132,16,0.4));
+}
 </style>
 </head>
-<!-- THIS IS THE HOME PAGE BODY-->
 <!-- BODY -->
 <body>
 <header>
@@ -341,9 +354,8 @@ header h1{
 </header>
 
 <section class="hero">
-    <div>
-        <h2>System X Ceramic</h2>
-        <p style="font-size:28px;">The only ceramic coating you'll ever need</p>
+    <div class="hero-logo">
+        <img src="images/SystemXACLogo.png" alt="System X Ceramic Logo">
     </div>
 </section>
 
