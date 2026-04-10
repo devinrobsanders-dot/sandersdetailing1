@@ -7,16 +7,18 @@
 <title>Sanders Detailing | About Us</title>
 <link rel="icon" type="images/x-icon" href="images/logo-transparent-svg.svg">
 
-<!-- Speed Optimization -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
-<!-- Optimized CSS -->
-
 <style>
 :root { --gold:#ff8410; }
-*{margin:0;padding:0;box-sizing:border-box;}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     font-family:'Bebas Neue',sans-serif;
@@ -24,7 +26,7 @@ body{
     color:#eaeaea;
 }
 
-/* HEADER CSS CODE */
+/* ================= NAV (MATCHES INDEX PAGE SYSTEM) ================= */
 
 header{
     position:fixed;
@@ -32,164 +34,15 @@ header{
     padding:20px 60px;
     display:flex;
     justify-content:space-between;
-    background-color: #111;
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid var(--gold);
+    align-items:center;
+    background:#111;
+    border-bottom:2px solid var(--gold);
     z-index:1000;
 }
-header h1{
-    font-size:2.0rem;
-}
-header nav{
-    display:flex;
-    gap: 10px;
-}
 
-/* HERO */
-.hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background: url("images/637898256_934991185540592_6812036111286996433_n.jpg") center/cover no-repeat;
-    position:relative;
-}
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: rgba(0,0,0,0.45); /* optional dark overlay */
-}
-.hero h2{
-    font-family:'Bebas Neue',serif;
-    font-size:64px;
-}
-
-.btn{
-    padding: 12px 40px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    transition:.4s;
-}
-.btn:hover{background:var(--gold);color:black;}
-
-.top-schedule{
-    padding: 12px 40px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    transition:.4s;
-}
-.top-schedule:hover{background:var(--gold);color:black;}
-
-/* FLOATING BUTTON */
-.floating-btn{
-    position: fixed;
-    bottom:25px;
-    right:25px;
-    background:var(--gold);
-    color:#000;
-    padding:14px 22px;
-    border-radius:50px;
-    text-decoration:none;
-    font-weight:500;
-    box-shadow:0 0 20px rgba(255, 212, 69, 0.4);
-    transition:.3s;
-    z-index:9999;
-}
-
-.floating-btn:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 30px rgba(212,175,55,0.7);
-}
-
-/* SECTIONS */
-
-.section{padding:100px 60px;text-align:center;}
-
-.service-title{
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-    justify-content:center;
-    margin-top: 100px;
-}
-
-.services{
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.recent-work{
-    margin-bottom:50px;
-}
-
-.card{
-    background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(12px);
-    border:1px solid rgb(255, 141, 11);
-    padding:30px;
-    width:280px;
-    transition:.4s;
-    border-radius:16px; /* 👈 add this */
-    overflow:hidden;     /* keeps images inside rounded corners */
-}
-.card:hover{transform:translateY(-10px);border-color:var(--white);}
-
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-}
-
-.gallery img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    opacity:.85;
-    transition:.4s;
-}
-.gallery img:hover{opacity:1;transform:scale(1.01);}
-
-/* ANIMATIONS */
-.fade{opacity:0;transform:translateY(40px);transition:1s;}
-.fade.show{opacity:1;transform:translateY(0);}
-
-/* MOBILE */
-@media(max-width:768px){
-.hero h2{font-size:36px;}
-header{padding:20px;}
-}
-
-.social-footer {
-    background: #111;
-    border-top: 1px solid rgba(255, 132, 16, 0.45);
-    padding: 40px 60px;
-    text-align: center;
-}
-.social-footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 14px;
-}
-.social-footer .social-icons a {
-    padding: 10px 20px;
-    border:1px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    transition:.2s;
-}
-.social-footer .social-icons a:hover {
-    background: var(--gold);
-    color: #000;
-}
-.social-footer small {
-    color: #ccc;
+.navbar-brand img{
+    height:40px;
+    width:auto;
 }
 
 /* HAMBURGER */
@@ -198,9 +51,9 @@ header{padding:20px;}
     cursor:pointer;
     width:30px;
     height:24px;
-    position:relative;
     margin-left:auto;
 }
+
 .hamburger span{
     display:block;
     width:100%;
@@ -208,8 +61,13 @@ header{padding:20px;}
     background:var(--gold);
     margin:4px 0;
     transition:0.3s;
-    transform-origin:center;
 }
+
+#nav-toggle{
+    display:none;
+}
+
+/* ANIMATION */
 #nav-toggle:checked ~ .hamburger span:nth-child(1){
     transform:rotate(45deg) translate(5px,5px);
 }
@@ -219,206 +77,241 @@ header{padding:20px;}
 #nav-toggle:checked ~ .hamburger span:nth-child(3){
     transform:rotate(-45deg) translate(7px,-6px);
 }
+
+/* NAV MENU */
 .navigation{
     display:flex;
-    gap: 10px;
-    transition:transform 0.3s ease, opacity 0.3s ease;
-}
-.close-btn{
-    display:none;
-    position:absolute;
-    top:20px;
-    right:20px;
-    font-size:30px;
-    color:var(--gold);
-    cursor:pointer;
-    z-index:1000;
-}
-#nav-toggle:checked ~ .close-btn{
-    display:block;
+    gap:10px;
 }
 
-@media(max-width:600px){
-  .hamburger{ display:block; }
-  .navigation { 
-    flex-direction:column; 
-    position:fixed; 
-    top:0; 
-    left:0; 
-    width:100%; 
-    height:100vh; 
-    background:rgba(14,14,14,0.98); 
-    justify-content:center; 
-    align-items:center; 
-    gap:20px; 
-    transform:translateY(-100%);
-    opacity:0;
-    pointer-events:none;
-    z-index:999;
-  }
-  #nav-toggle:checked ~ .navigation {
-    transform:translateY(0);
-    opacity:1;
-    pointer-events:auto;
-  }
-  .top-schedule{
-    font-size:1.2rem;
-    padding:15px 30px;
-  }
-}
-.social-footer {
-    background: #111;
-    border-top: 1px solid rgba(255, 132, 16, 0.45);
-    padding: 40px 60px;
-    text-align: center;
-}
-.social-footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 14px;
-}
-.social-footer .social-icons a {
-    padding: 10px 20px;
+.top-schedule{
+    padding:12px 40px;
     border:1px solid var(--gold);
     color:var(--gold);
     text-decoration:none;
-    transition:.2s;
+    transition:.3s;
 }
-.social-footer .social-icons a:hover {
-    background: var(--gold);
-    color: #000;
+
+.top-schedule:hover{
+    background:var(--gold);
+    color:#000;
 }
-.social-footer small {
-    color: #ccc;
+
+/* MOBILE NAV */
+@media(max-width:600px){
+
+.hamburger{display:block;}
+
+.navigation{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(14,14,14,0.98);
+    transform:translateY(-100%);
+    opacity:0;
+    pointer-events:none;
+    transition:0.3s;
 }
-.section-fade {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: opacity 1s ease, transform 1s ease;
+
+#nav-toggle:checked ~ .navigation{
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
 }
-.navbar {
-    display: flex;
-    align-items: center; /* Vertically centers the logo */
-    justify-content: space-between; /* Positions logo left, nav right */
-    size: 62px; /* Adjust based on your design */
 }
-.navbar-brand img {
-    height: 50px; /* Adjust based on navbar height */
-    width: auto;
+
+/* ================= HERO ================= */
+
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:url("images/637898256_934991185540592_6812036111286996433_n.jpg") center/cover no-repeat;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+}
+
+.hero div{
+    position:relative;
+    z-index:1;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+    padding:100px 60px;
+    text-align:center;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ================= CARDS ================= */
+
+.services{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.card{
+    width:280px;
+    padding:30px;
+    border-radius:16px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgb(255,141,11);
+    backdrop-filter:blur(12px);
+}
+
+/* ================= FOOTER ================= */
+
+.social-footer{
+    background:#111;
+    border-top:1px solid rgba(255,132,16,0.4);
+    padding:40px 60px;
+    text-align:center;
+}
+
+.social-icons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:14px;
+}
+
+.social-icons a{
+    padding:10px 20px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+}
+
+.social-icons a:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+small{
+    color:#ccc;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.section{padding:80px 20px;}
+.hero h2{font-size:36px;}
 }
 </style>
 </head>
 
-<!-- BODY -->
 <body>
+
 <header>
     <a href="/" class="navbar-brand">
-        <img src="images/logo-transparent-svg 3.svg" alt="Sanders Detailing Logo" style="height: 40px;">
+        <img src="images/logo-transparent-svg 3.svg" alt="Logo">
     </a>
-    <input type="checkbox" id="nav-toggle" style="display:none;">
+
+    <input type="checkbox" id="nav-toggle">
+
     <label for="nav-toggle" class="hamburger">
         <span></span>
         <span></span>
         <span></span>
     </label>
-    <label for="nav-toggle" class="close-btn">&times;</label>
+
     <nav class="navigation">
         <a href="index.html" class="top-schedule">Home</a>
         <a href="ceramic-coating.html" class="top-schedule">Ceramic Coatings</a>
         <a href="about.html" class="top-schedule">About Us</a>
         <a href="contact.html" class="top-schedule">Contact Us</a>
-        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule">Online Booking</a>
+        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule">Booking</a>
     </nav>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
-    <div class="fade">
-        <h2 style="font-size: 64px;">Why Choose Sanders Detailing?</h2>
-        <p style="font-size: 32px;">Driven By Passion.</p>
+    <div class="fade show">
+        <h2 style="font-size:64px;">Why Choose Sanders Detailing?</h2>
+        <p style="font-size:28px;">Driven by passion. Built on trust.</p>
     </div>
-
-<!-- OUR STORY -->
-</section>
-<section class="section fade">
-    <h2 class="service-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 48px;">Our Story</h2>
-    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">As we’ve grown into one of the region’s top-tier mobile detailing companies, we’ve stayed true to what got us here. We’re still family-owned, still hands-on, and still focused on delivering an experience that’s easy, reliable, and stress-free. Bringing our services directly to you means you can have peace of mind knowing your vehicle is being professionally cared for without disrupting your day.
-At Sanders Detailing, our story is still being written—but our mission remains the same: provide exceptional results, build lasting relationships, and give every customer the confidence that their vehicle is in the right hands.</p>
 </section>
 
-<!-- ABOUT US CARDS -->
+<!-- STORY -->
+<section class="section fade show">
+    <h2 style="font-size:48px;">Our Story</h2>
+    <p style="font-size:24px; max-width:900px; margin:auto;">
+        As we’ve grown, we’ve stayed true to our roots. Family-owned, hands-on, and committed to delivering a stress-free detailing experience right to your door.
+    </p>
 </section>
-    <h2 class="service-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 72px;">What Sets Us Apart?</h2>
-<section class="section fade">
+
+<!-- CARDS -->
+<section class="section fade show">
+    <h2 style="font-size:48px;">What Sets Us Apart</h2>
+
     <div class="services">
+
         <div class="card">
-            <h3>Family Style Approach</h3>
-            <p>At Sanders Detailing, we treat every vehicle like it's our own. Whether it's a daily driver or a showroom piece, we bring the same level of dedication and precision to every job.</p>
+            <h3>Family Approach</h3>
+            <p>Every vehicle is treated like our own.</p>
         </div>
-         <div class="card">
-            <h3>High-Quality Products</h3>
-            <p>We take a meticulous approach to detailing, using high-quality products, proven techniques, and a trained eye for detail to deliver consistent, showroom-level results. From the initial inspection to the final wipe-down</p>
+
+        <div class="card">
+            <h3>High Quality</h3>
+            <p>Premium products and proven techniques.</p>
         </div>
-         <div class="card">
+
+        <div class="card">
             <h3>Reliability</h3>
-            <p>We believe reliability goes beyond just being on time—it means clear communication, honest expectations, and standing behind our work. When you choose Sanders Detailing, you’re choosing a team that takes pride in being dependable from start to finish.</p>
-        </div>
-         <div class="card">
-            <h3>Quality Standard</h3>
-            <p>We maintain the highest quality standards in every aspect of our detailing process, ensuring that each vehicle receives the attention to detail it deserves.</p>
-        </div>
-         <div class="card">
-            <h3>Certified Technicians</h3>
-            <p>Our team consists of certified technicians who are trained in the latest detailing techniques and use only the highest quality products to ensure your vehicle receives the best possible care.</p>
-        </div>    
-    </section>
+            <p>On time, clear communication, always consistent.</p>
         </div>
 
-<!-- PARTNERS SECTION -->
+        <div class="card">
+            <h3>Certified Techs</h3>
+            <p>Trained professionals using industry best practices.</p>
+        </div>
 
-<section class="section fade">
-    <h2 class="service-title" style="font-family: 'Bebas Neue', sans-serif; font-size: 48px;">Partners</h2>
-    <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap:wrap;">
-       <a href="https://systemx.com/" target="_blank" rel="noopener noreferrer">
-            <img src="images/SystemXACLogo.png" alt="System X Ceramic Logo" style="max-width:400px; max-height:250px; object-fit:contain;">
-        </a>
-        <a href="https://3dproducts.com/?ref=SandersDetailing" target="_blank" rel="noopener noreferrer">
-            <img src="images/3DProductsLogo.png" alt="3D Logo" style="max-width:300px; max-height:150px; object-fit:contain;">
-        </a>
     </div>
 </section>
 
-<!-- CONTACT -->
-
-<section id="contact" class="section fade">
-    <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">Contact</h2>
-    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">(586)-482-4403</p>
-    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">Email: Contact@sandersdetailing.com</p>
-</section>
-
-<footer class="section social-footer">
+<!-- FOOTER -->
+<footer class="social-footer">
     <div class="social-icons">
-        <a href="https://www.facebook.com/sandersdetailingllc" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/sandersdetailing" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@sandersautodetailing" target="_blank" rel="noopener">TikTok</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
     </div>
-    <small>&copy; 2026 Sanders Detailing. All rights reserved. · Designed by Sanders Detailing</small>
+    <small>© 2026 Sanders Detailing</small>
 </footer>
 
-<!-- 🔥 FLOATING BUTTON -->
-<a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="floating-btn">Book Now</a>
-
-<!-- Optimized JS -->
 <script>
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(e=>{
 if(e.isIntersecting){e.target.classList.add('show');}
 });
-},{threshold:.2});
+},{threshold:0.2});
 
 document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
-history.pushState(null, null, 'https://sandersdetailing.com/about.html');
 </script>
 
 </body>
