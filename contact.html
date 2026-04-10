@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us | Sanders Detailing</title>
+<link rel="icon" type="images/x-icon" href="images/logo-transparent-svg.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<style>
+:root { --gold:#ff8410; }
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Bebas Neue',sans-serif;
+    background:#0e0e0e;
+    color:#eaeaea;
+}
+
+/* ================= NAV (BULLETPROOF - SAME SYSTEM) ================= */
+
+header{
+    position:fixed;
+    width:100%;
+    padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#111;
+    border-bottom:2px solid var(--gold);
+    z-index:1000;
+}
+
+.hamburger{
+    display:none;
+    cursor:pointer;
+    width:30px;
+    height:24px;
+    position:relative;
+    margin-left:auto;
+}
+
+.hamburger span{
+    display:block;
+    width:100%;
+    height:3px;
+    background:var(--gold);
+    margin:4px 0;
+    transition:0.3s;
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(1){
+    transform:rotate(45deg) translate(5px,5px);
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(2){
+    opacity:0;
+}
+
+#nav-toggle:checked ~ .hamburger span:nth-child(3){
+    transform:rotate(-45deg) translate(7px,-6px);
+}
+
+.navigation{
+    display:flex;
+    gap:10px;
+}
+
+.close-btn{
+    display:none;
+    position:absolute;
+    top:20px;
+    right:20px;
+    font-size:30px;
+    color:var(--gold);
+    cursor:pointer;
+}
+
+#nav-toggle:checked ~ .close-btn{
+    display:block;
+}
+
+/* NAV BUTTONS */
+.top-schedule{
+    padding:12px 40px;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.top-schedule:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:60vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:url("images/Montlick-Gallery1.png") center/cover no-repeat;
+    position:relative;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.5);
+}
+
+.hero h1{
+    font-size:64px;
+    position:relative;
+}
+
+/* ================= FORM ================= */
+
+.section{
+    padding:120px 60px;
+    text-align:center;
+}
+
+.form-container{
+    max-width:700px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.03);
+    border:1px solid var(--gold);
+    border-radius:18px;
+    padding:40px;
+    backdrop-filter:blur(12px);
+}
+
+.form-title{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    text-align:left;
+    margin-bottom:15px;
+}
+
+label{
+    font-size:20px;
+    margin-bottom:6px;
+    color:var(--gold);
+}
+
+input, textarea{
+    padding:12px;
+    border-radius:8px;
+    border:1px solid rgba(255,132,16,0.4);
+    background:#111;
+    color:#fff;
+    font-size:18px;
+    outline:none;
+}
+
+textarea{
+    resize:none;
+    height:140px;
+}
+
+input:focus, textarea:focus{
+    border-color:var(--gold);
+}
+
+/* BUTTON */
+.submit-btn{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    background:var(--gold);
+    color:#000;
+    font-size:20px;
+    cursor:pointer;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:scale(1.03);
+}
+
+/* FLOATING BUTTON */
+.floating-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:var(--gold);
+    color:#000;
+    padding:14px 22px;
+    border-radius:50px;
+    text-decoration:none;
+}
+
+/* ================= MOBILE NAV ================= */
+
+@media(max-width:600px){
+    .hamburger{display:block;}
+
+    .navigation{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100vh;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        background:#0e0e0e;
+        transform:translateY(-100%);
+        opacity:0;
+        pointer-events:none;
+    }
+
+    #nav-toggle:checked ~ .navigation{
+        transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="navbar-brand">
+        <img src="images/logo-transparent-svg 3.svg" style="height:40px;">
+    </a>
+
+    <input type="checkbox" id="nav-toggle" style="display:none;">
+
+    <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <label for="nav-toggle" class="close-btn">&times;</label>
+
+    <nav class="navigation">
+        <a href="index.html" class="top-schedule">Home</a>
+        <a href="ceramic-coating.html" class="top-schedule">Ceramic Coatings</a>
+        <a href="about.html" class="top-schedule">About Us</a>
+        <a href="contact.html" class="top-schedule">Contact</a>
+        <a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="top-schedule">Booking</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Contact Us</h1>
+</section>
+
+<section class="section">
+
+    <div class="form-container">
+
+        <div class="form-title">Get In Touch</div>
+
+        <form>
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="John">
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="john@email.com">
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="(555) 555-5555">
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <textarea placeholder="How can we help?"></textarea>
+            </div>
+
+            <button class="submit-btn" type="submit">Send Message</button>
+        </form>
+
+    </div>
+
+</section>
+
+<a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="floating-btn">Book Now</a>
+
+</body>
+</html>
