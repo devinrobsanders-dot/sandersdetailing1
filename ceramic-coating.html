@@ -404,21 +404,31 @@ header h1{
     </div>
 </section>
 
-<section id="contact" class="section">
-    <p>(586) 482-4403</p>
-    <p>Contact@sandersdetailing.com</p>
+<section id="contact" class="section fade">
+    <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">Contact</h2>
+    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">(586)-482-4403</p>
+    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 32px;">Contact@sandersdetailing.com</p>
 </section>
-
-<footer class="social-footer">
+<footer class="section social-footer">
     <div class="social-icons">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
+        <a href="https://www.facebook.com/sandersdetailingllc" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/sandersdetailing" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@sandersautodetailing" target="_blank" rel="noopener">TikTok</a>
     </div>
     <small>&copy; 2026 Sanders Detailing. All rights reserved. · Designed by Sanders Detailing</small>
 </footer>
+<!-- 🔥 FLOATING BUTTON -->
+<a href="https://booking.detailermade.com/c5fa5269-9eb9-42df-bb76-4dcd843fd1d5" class="floating-btn">Book Now</a>
 
-<a href="#" class="floating-btn">Book Now</a>
+<!-- Optimized JS -->
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('show');}
+});
+},{threshold:.2});
 
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
