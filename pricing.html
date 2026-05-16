@@ -196,62 +196,6 @@ header h1{
 /* ANIMATIONS */
 .fade{opacity:0;transform:translateY(40px);transition:1s;}
 .fade.show{opacity:1;transform:translateY(0);}
-
-/* MOBILE */
-@media(max-width:1024px){
-  header nav { gap:8px; }
-  .top-schedule { padding:10px 30px; font-size:0.95rem; }
-}
-@media(max-width:768px){
-  .hero h2{font-size:36px;}
-  header{padding:20px;}
-  header h1{font-size:1.5rem;}
-  .section{padding:80px 20px;}
-  .service-title{margin-top:80px;}
-  .services{flex-direction:column; align-items:center;}
-  .card{width:100%; max-width:320px;}
-  .gallery{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-  .top-schedule{padding:10px 20px; font-size:0.9rem;}
-  .floating-btn{bottom:20px; right:20px; padding:12px 18px; font-size:0.9rem;}
-}
-@media(max-width:600px){
-  .hamburger{ display:block; }
-  .navigation { 
-    flex-direction:column; 
-    position:fixed; 
-    top:0; 
-    left:0; 
-    width:100%; 
-    height:100vh; 
-    background:rgba(14,14,14,0.98); 
-    justify-content:center; 
-    align-items:center; 
-    gap:20px; 
-    transform:translateY(-100%);
-    opacity:0;
-    pointer-events:none;
-    z-index:999;
-  }
-  #nav-toggle:checked ~ .navigation {
-    transform:translateY(0);
-    opacity:1;
-    pointer-events:auto;
-  }
-  .top-schedule{
-    font-size:1.2rem;
-    padding:15px 30px;
-  }
-}
-
-@media(max-width:480px){
-  .hero{height:60vh;}
-  .hero h2{font-size:28px;}
-  header h1{font-size:1.2rem;}
-  .section{padding:60px 15px;}
-  .card{padding:20px;}
-  .gallery{grid-template-columns:1fr;}
-  header nav { width:180px; }
-}
 .social-footer {
     background: #111;
     border-top: 1px solid rgba(255, 132, 16, 0.45);
@@ -998,7 +942,6 @@ header h1{
                 <li>Shampoo Extraction for Carpets & Mats</li>
                 <li>Seat Deep Cleaning & Stain Treatment</li>
                 <li>Leather Cleaning & Conditioning</li>
-                <li>Pet Hair Removal</li>
                 <li>Odor Neutralization Treatment</li>
                 <li>Detailed Vent, Trim & Crevice Cleaning</li>
                 <li>Bacteria & Germ Reduction Process</li>
